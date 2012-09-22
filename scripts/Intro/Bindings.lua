@@ -1,0 +1,3 @@
+Intro.bind = function()
+
+end

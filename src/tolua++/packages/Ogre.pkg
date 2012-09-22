@@ -1,0 +1,10 @@
+// Ogre
+$#include <Ogre.h>
+
+$typedef std::string string_t;
+typedef std::string string_t;
+
+$pfile "OgreMain.pkg"
+$pfile "OgreBillboards.pkg"
+$pfile "OgreCameraMan.pkg"
+$pfile "OgreAny.pkg"

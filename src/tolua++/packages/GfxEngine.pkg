@@ -1,0 +1,67 @@
+$#include "Hax/GfxEngine.hpp"
+$#include <Ogre.h>
+
+namespace Hax {
+
+	class GfxEngine {
+
+	public:
+
+    enum QueryFlags {
+      TERRAIN_MASK = 1<<0,
+      ENTITY_MASK = 1<<1
+    };
+
+    enum MousePickingMode {
+      GENERIC,
+      POLY
+    };
+
+		static GfxEngine* getSingletonPtr();
+
+    Ogre::ColourValue mMTOFontColor;
+    Ogre::String mMTOFontName;
+    int mMTOFontSize;
+    Ogre::String mMTOMaterialName;
+
+    void disableMouseCaptureOverUIElement(string_t inElementName);
+    void enableMouseCaptureOverUIElement(string_t inElementName);
+
+		void setCamera(Ogre::String inCameraName);
+
+    void switchMousePickingMode();
+    int getMousePickingMode() const;
+
+		bool attachToScene(Hax::Entity* inEntity);
+		void detachFromScene(Hax::Entity* inEntity);
+
+    void setupMovableTextOverlays();
+
+		OgreBites::SdkCameraMan* getCameraMan();
+		Ogre::Camera* getCamera();
+		Ogre::Root* getRoot();
+		Ogre::SceneManager* getSceneMgr();
+    Ogre::RenderWindow *getWindow();
+		Ogre::Viewport* getViewport();
+
+		Hax::Entity* getSelected();
+
+    void updateMe(Hax::Mobile*);
+    void stopUpdatingMe(Hax::Mobile*);
+
+    void enableCompositorEffect(string_t inEffect);
+
+    Ogre::Vector2 getScreenCoords(Ogre::MovableObject* inObject);
+
+    void setYawPitchDist(Ogre::Vector3 inVec);
+    void trackNode(Ogre::SceneNode* inNode);
+
+    void _setUserAny(Ogre::MovableObject*, void*);
+
+    void attachRTT(Hax::OgreRTT*);
+    void detachRTT(Hax::OgreRTT*);
+
+    void createColourCube();
+    void createSphere(const string_t& strName, const float r, const int nRings = 16, const int nSegments = 16);
+	};
+}

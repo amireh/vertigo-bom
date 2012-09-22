@@ -1,0 +1,26 @@
+// include the header that makes these files generate valid code
+$#include "Hax/Hax.hpp"
+
+$typedef std::string string_t;
+typedef std::string string_t;
+
+// Hax
+$pfile "Animable.pkg"
+$pfile "Entity.pkg"
+$pfile "Engine.pkg"
+$pfile "FxEngine.pkg"
+$pfile "Event.pkg"
+$pfile "EventManager.pkg"
+$pfile "EventListener.pkg"
+$pfile "GameManager.pkg"
+$pfile "GameState.pkg"
+$pfile "GfxEngine.pkg"
+$pfile "Intro.pkg"
+$pfile "InputManager.pkg"
+$pfile "Logger.pkg"
+$pfile "LuaExporter.pkg"
+$pfile "Mobile.pkg"
+$pfile "OgreRTT.pkg"
+$pfile "Renderable.pkg"
+$pfile "ScriptEngine.pkg"
+$pfile "UIEngine.pkg"

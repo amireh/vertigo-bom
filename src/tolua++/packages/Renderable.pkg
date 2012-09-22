@@ -1,0 +1,27 @@
+$#include "Hax/Renderable.hpp"
+
+namespace Hax
+{
+	class Renderable
+	{
+    public:
+
+		Renderable();
+		Renderable(const Renderable& src);
+		virtual ~Renderable();
+
+		void attachSceneNode(Ogre::SceneNode* inNode);
+		Ogre::SceneNode* getSceneNode() const;
+
+		void attachSceneObject(Ogre::Entity* inObject);
+		Ogre::Entity* getSceneObject() const;
+
+    Ogre::Entity* attachExtension(string_t const& inMesh, string_t const& inBone);
+
+    string_t const& getMesh() const;
+    string_t const& getMaterial() const;
+    void setMaterial(string_t const&);
+    void setMesh(string_t const&);
+
+	}; // end of Renderable class
+} // end of Hax namespace

@@ -1,0 +1,10 @@
+$#include "Hax/InputManager.hpp"
+
+namespace Hax {
+class InputManager {
+  public:
+    OIS::Keyboard* getKeyboard( void );
+
+    static InputManager* getSingletonPtr( void );
+};
+}

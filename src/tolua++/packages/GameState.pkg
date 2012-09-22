@@ -1,0 +1,16 @@
+$#include "Hax/GameState.hpp"
+
+namespace Hax {
+
+class GameState {
+
+  enum State {
+    Intro
+  };
+
+	void changeState( Hax::GameState *state );
+	void requestShutdown( void );
+  bool isCurrentState();
+};
+
+}

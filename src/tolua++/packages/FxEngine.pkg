@@ -1,0 +1,33 @@
+$#include "Hax/FxEngine.hpp"
+
+namespace Ogre {
+  class Vector3;
+  class SceneManager;
+  class SceneNode;
+}
+
+namespace Hax {
+
+  struct Event;
+  class Entity;
+  class GfxEngine;
+	class FxEngine : public Hax::Engine, public Hax::EventListener {
+
+	public:
+		virtual ~FxEngine();
+		static FxEngine& getSingleton();
+    static FxEngine* getSingletonPtr();
+
+		virtual bool setup();
+		virtual void update(unsigned long lTimeElapsed);
+		virtual bool cleanup();
+
+    // ParticleUniverse::ParticleSystem* loadEffect(string_t inName);
+    // ParticleUniverse::ParticleSystem* playEffect(string_t inEffect, Hax::Entity* inEntity, bool newInstance = false);
+    // ParticleUniverse::ParticleSystem* playEffect(ParticleUniverse::ParticleSystem*, Hax::Entity* inEntity);
+    // ParticleUniverse::ParticleSystem* playEffect(string_t inEffect, const Ogre::Vector3 pos, bool newInstance = false);
+
+    void unloadAllEffects();
+
+	};
+}

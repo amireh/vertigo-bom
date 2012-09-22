@@ -1,0 +1,9 @@
+$#include "Hax/Intro.hpp"
+
+namespace Hax {
+class Intro : public Hax::GameState
+{
+	static Intro& getSingleton( void );
+  static Intro* getSingletonPtr( void );
+};
+}

@@ -1,0 +1,20 @@
+$#include "Hax/UIEngine.hpp"
+
+namespace CEGUI {
+  class Window;
+  class UBox;
+}
+
+namespace Hax {
+  //class Spell;
+  class UIEngine {
+  public:
+
+  static UIEngine* getSingletonPtr();
+
+  void setMargin(CEGUI::Window*, CEGUI::UBox);
+  void connectAnimation(CEGUI::Window*, string_t);
+  //void refreshTooltipSize(CEGUI::Window* inWindow, Hax::Spell* inSpell);
+
+  };
+}

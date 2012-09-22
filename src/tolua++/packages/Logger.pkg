@@ -1,0 +1,4 @@
+$#include "Hax/ScriptEngine.hpp"
+namespace Hax {
+  static void ScriptEngine::luaLog @ Log(string_t inMsg);
+}

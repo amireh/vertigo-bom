@@ -1,0 +1,12 @@
+$#include "Hax/GameManager.hpp"
+
+namespace Hax {
+  class GameManager
+  {
+
+  void changeState(Hax::GameState *inState);
+  static GameManager& getSingleton();
+  void requestShutdown();
+
+  };
+}
