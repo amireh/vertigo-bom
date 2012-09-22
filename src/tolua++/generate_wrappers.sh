@@ -2,7 +2,8 @@
 
 ROOT=$1
 # PACKAGES=("Hax" "Ogre" "CEGUI" "OIS")
-PACKAGES=("Hax" "Ogre" "OIS")
+# PACKAGES=("Hax" "Ogre" "OIS")
+PACKAGES=("Hax")
 
 cd $ROOT/packages
 

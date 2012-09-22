@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Ogre
-** Generated automatically by tolua++-1.0.92 on Thu Sep 20 18:16:26 2012.
+** Generated automatically by tolua++-1.0.92 on Sat Sep 22 12:09:12 2012.
 */
 
 #ifndef __cplusplus

@@ -58,8 +58,8 @@ namespace Hax {
 
     void _setUserAny(Ogre::MovableObject*, void*);
 
-    void attachRTT(Hax::OgreRTT*);
-    void detachRTT(Hax::OgreRTT*);
+    // void attachRTT(Hax::OgreRTT*);
+    // void detachRTT(Hax::OgreRTT*);
 
     void createColourCube();
     void createSphere(const string_t& strName, const float r, const int nRings = 16, const int nSegments = 16);

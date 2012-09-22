@@ -182,9 +182,9 @@ namespace Hax {
     }
 
     // assign the real appender layout
-    if (using_syslog)
-      mLayout = new SyslogLayout();
-    else
+    // if (using_syslog)
+    //   mLayout = new SyslogLayout();
+    // else
       mLayout = new FileLayout();
 
     mAppender->setLayout(mLayout);

@@ -5,8 +5,11 @@ $typedef std::string string_t;
 typedef std::string string_t;
 
 // Hax
+
 $pfile "Animable.pkg"
 $pfile "Entity.pkg"
+$pfile "Renderable.pkg"
+$pfile "Mobile.pkg"
 $pfile "Engine.pkg"
 $pfile "FxEngine.pkg"
 $pfile "Event.pkg"
@@ -19,8 +22,6 @@ $pfile "Intro.pkg"
 $pfile "InputManager.pkg"
 $pfile "Logger.pkg"
 $pfile "LuaExporter.pkg"
-$pfile "Mobile.pkg"
-$pfile "OgreRTT.pkg"
-$pfile "Renderable.pkg"
+// $pfile "OgreRTT.pkg"
 $pfile "ScriptEngine.pkg"
 $pfile "UIEngine.pkg"

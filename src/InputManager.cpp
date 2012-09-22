@@ -86,8 +86,8 @@ namespace Hax
       paramList.insert(std::make_pair(std::string("XAutoRepeatOn"), std::string("true")));
 #endif
 
-		    // Create inputsystem
-		    mInputSystem = OIS::InputManager::createInputSystem( paramList );
+	    // Create inputsystem
+	    mInputSystem = OIS::InputManager::createInputSystem( paramList );
 
 			mKeyboard = static_cast<OIS::Keyboard*>( mInputSystem->createInputObject( OIS::OISKeyboard, true ) );
 			mKeyboard->setEventCallback( this );

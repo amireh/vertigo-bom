@@ -28,7 +28,7 @@
 #include "Hax/ScriptEngine.hpp"
 #include "Hax/Utility.hpp"
 #include "Hax/Ogre/MousePicker.h"
-#include "Hax/Ogre/OgreRTT.h"
+// #include "Hax/Ogre/OgreRTT.h"
 #include "Hax/Ogre/SdkCameraMan.h"
 #include "Hax/Ogre/MovableTextOverlay.h"
 #include "Hax/Ogre/RectLayoutManager.h"
@@ -132,7 +132,7 @@ namespace Hax {
     mAnimables.clear();
     mMobiles.clear();
     mMTOs.clear();
-    mRTTs.clear();
+    // mRTTs.clear();
 
 		mSelected = 0;
 		fSetup = true;
@@ -580,29 +580,29 @@ namespace Hax {
     inObj->setUserAny(Ogre::Any(any));
   }
 
-  void GfxEngine::attachRTT(OgreRTT* inRTT)
-  {
-    mRTTs.push_back(inRTT);
-  }
-  void GfxEngine::detachRTT(OgreRTT* inRTT)
-  {
-    mRTTs.remove(inRTT);
-  }
+  // void GfxEngine::attachRTT(OgreRTT* inRTT)
+  // {
+    // mRTTs.push_back(inRTT);
+  // }
+  // void GfxEngine::detachRTT(OgreRTT* inRTT)
+  // {
+    // mRTTs.remove(inRTT);
+  // }
 
 
   void GfxEngine::preRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
   {
     // todo: don't reference a scenenode by its name in here.... create a hook for a callback
-    mSceneMgr->getSceneNode("EntitySelectionNode")->setVisible(false);
-    for (std::list<OgreRTT*>::iterator rtt = mRTTs.begin(); rtt != mRTTs.end(); ++rtt)
-      (*rtt)->hide();
+    // mSceneMgr->getSceneNode("EntitySelectionNode")->setVisible(false);
+    // for (std::list<OgreRTT*>::iterator rtt = mRTTs.begin(); rtt != mRTTs.end(); ++rtt)
+    //   (*rtt)->hide();
   }
 
   void GfxEngine::postRenderTargetUpdate(const Ogre::RenderTargetEvent& evt)
   {
-    mSceneMgr->getSceneNode("EntitySelectionNode")->setVisible(true);
-    for (std::list<OgreRTT*>::iterator rtt = mRTTs.begin(); rtt != mRTTs.end(); ++rtt)
-      (*rtt)->show();
+    // mSceneMgr->getSceneNode("EntitySelectionNode")->setVisible(true);
+    // for (std::list<OgreRTT*>::iterator rtt = mRTTs.begin(); rtt != mRTTs.end(); ++rtt)
+    //   (*rtt)->show();
   }
 
   void GfxEngine::disableMouseCaptureOverUIElement(std::string const& inElementName)

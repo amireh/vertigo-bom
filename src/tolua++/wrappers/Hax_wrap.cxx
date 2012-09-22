@@ -1,6 +1,6 @@
 /*
 ** Lua binding: Hax
-** Generated automatically by tolua++-1.0.92 on Thu Sep 20 18:16:26 2012.
+** Generated automatically by tolua++-1.0.92 on Sat Sep 22 12:14:45 2012.
 */
 
 #ifndef __cplusplus
@@ -17,6 +17,8 @@ TOLUA_API int  tolua_Hax_open (lua_State* tolua_S);
 typedef std::string string_t;
 #include "Hax/Animable.hpp"
 #include "Hax/Entity.hpp"
+#include "Hax/Renderable.hpp"
+#include "Hax/Mobile.hpp"
 #include "Hax/FxEngine.hpp"
 #include "Hax/Event.hpp"
 #include "Hax/EventManager.hpp"
@@ -29,10 +31,6 @@ typedef std::string string_t;
 #include "Hax/InputManager.hpp"
 #include "Hax/ScriptEngine.hpp"
 #include "Hax/LuaExporter.hpp"
-#include "Hax/Mobile.hpp"
-#include "Hax/Ogre/OgreRTT.h"
-#include "Ogre.h"
-#include "Hax/Renderable.hpp"
 #include "Hax/ScriptEngine.hpp"
 #include <lua.h>
 #include "Hax/UIEngine.hpp"
@@ -96,13 +94,6 @@ static int tolua_collect_Hax__EventListener (lua_State* tolua_S)
 	return 0;
 }
 
-static int tolua_collect_Hax__OgreRTT (lua_State* tolua_S)
-{
- Hax::OgreRTT* self = (Hax::OgreRTT*) tolua_tousertype(tolua_S,1,0);
-	Mtolua_delete(self);
-	return 0;
-}
-
 static int tolua_collect_Hax__Event (lua_State* tolua_S)
 {
  Hax::Event* self = (Hax::Event*) tolua_tousertype(tolua_S,1,0);
@@ -142,24 +133,21 @@ static void tolua_reg_types (lua_State* tolua_S)
  tolua_usertype(tolua_S,"Hax::LuaExporter<std::list<Hax::Entity*> >");
  tolua_usertype(tolua_S,"Hax::GameManager");
  tolua_usertype(tolua_S,"Hax::Renderable");
- tolua_usertype(tolua_S,"Ogre::Real");
  tolua_usertype(tolua_S,"OgreBites::SdkCameraMan");
- tolua_usertype(tolua_S,"CEGUI::UBox");
- tolua_usertype(tolua_S,"CEGUI::Window");
  tolua_usertype(tolua_S,"Ogre::String");
- tolua_usertype(tolua_S,"Hax::ScriptEngine");
+ tolua_usertype(tolua_S,"CEGUI::UBox");
  tolua_usertype(tolua_S,"Ogre::Root");
  tolua_usertype(tolua_S,"OIS::Keyboard");
  tolua_usertype(tolua_S,"Hax::EventManager");
- tolua_usertype(tolua_S,"Ogre::RenderTargetListener");
+ tolua_usertype(tolua_S,"CEGUI::Window");
  tolua_usertype(tolua_S,"std::ostream");
  tolua_usertype(tolua_S,"Ogre::ColourValue");
- tolua_usertype(tolua_S,"Hax::OgreRTT");
+ tolua_usertype(tolua_S,"Hax::ScriptEngine");
  tolua_usertype(tolua_S,"Hax::LuaExporter<std::vector<Hax::Entity*> >");
- tolua_usertype(tolua_S,"std::vector<Vector3>");
+ tolua_usertype(tolua_S,"Hax::InputManager");
  tolua_usertype(tolua_S,"Ogre::Entity");
  tolua_usertype(tolua_S,"Ogre::Vector3");
- tolua_usertype(tolua_S,"Hax::InputManager");
+ tolua_usertype(tolua_S,"std::vector<Vector3>");
  tolua_usertype(tolua_S,"Hax::GameState");
  tolua_usertype(tolua_S,"Ogre::SceneNode");
  tolua_usertype(tolua_S,"Ogre::MovableObject");
@@ -550,12 +538,12 @@ static int tolua_Hax_Hax_Renderable_setMaterial00(lua_State* tolua_S)
 #endif
  {
   Hax::Renderable* self = (Hax::Renderable*)  tolua_tousertype(tolua_S,1,0);
-  string_t const* tolua_var_14 = ((string_t const*)  tolua_tousertype(tolua_S,2,0));
+  string_t const* tolua_var_6 = ((string_t const*)  tolua_tousertype(tolua_S,2,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setMaterial'", NULL);
 #endif
   {
-   self->setMaterial(*tolua_var_14);
+   self->setMaterial(*tolua_var_6);
   }
  }
  return 0;
@@ -583,12 +571,12 @@ static int tolua_Hax_Hax_Renderable_setMesh00(lua_State* tolua_S)
 #endif
  {
   Hax::Renderable* self = (Hax::Renderable*)  tolua_tousertype(tolua_S,1,0);
-  string_t const* tolua_var_15 = ((string_t const*)  tolua_tousertype(tolua_S,2,0));
+  string_t const* tolua_var_7 = ((string_t const*)  tolua_tousertype(tolua_S,2,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setMesh'", NULL);
 #endif
   {
-   self->setMesh(*tolua_var_15);
+   self->setMesh(*tolua_var_7);
   }
  }
  return 0;
@@ -2621,6 +2609,489 @@ static int tolua_Hax_Hax_Entity_setRotationFactor00(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
+/* method: new of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new00
+static int tolua_Hax_Hax_Mobile_new00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)());
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: new_local of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new00_local
+static int tolua_Hax_Hax_Mobile_new00_local(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)());
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: new of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new01
+static int tolua_Hax_Hax_Mobile_new01(lua_State* tolua_S)
+{
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"const Hax::Mobile",0,&tolua_err)) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+ {
+  const Hax::Mobile* src = ((const Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
+  {
+   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)(*src));
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
+  }
+ }
+ return 1;
+tolua_lerror:
+ return tolua_Hax_Hax_Mobile_new00(tolua_S);
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: new_local of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new01_local
+static int tolua_Hax_Hax_Mobile_new01_local(lua_State* tolua_S)
+{
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"const Hax::Mobile",0,&tolua_err)) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+ {
+  const Hax::Mobile* src = ((const Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
+  {
+   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)(*src));
+    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
+    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
+  }
+ }
+ return 1;
+tolua_lerror:
+ return tolua_Hax_Hax_Mobile_new00_local(tolua_S);
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: delete of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_delete00
+static int tolua_Hax_Hax_Mobile_delete00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'delete'", NULL);
+#endif
+  Mtolua_delete(self);
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'delete'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: move of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_move00
+static int tolua_Hax_Hax_Mobile_move00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+  int inWaypoint = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'move'", NULL);
+#endif
+  {
+   self->move(inWaypoint);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'move'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: step of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_step00
+static int tolua_Hax_Hax_Mobile_step00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+  unsigned long dt = ((unsigned long)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'step'", NULL);
+#endif
+  {
+   self->step(dt);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'step'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: isMoving of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_isMoving00
+static int tolua_Hax_Hax_Mobile_isMoving00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"const Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const Hax::Mobile* self = (const Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'isMoving'", NULL);
+#endif
+  {
+   bool tolua_ret = (bool)  self->isMoving();
+   tolua_pushboolean(tolua_S,(bool)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'isMoving'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setWaypoints of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setWaypoints00
+static int tolua_Hax_Hax_Mobile_setWaypoints00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isusertype(tolua_S,2,"std::vector<Vector3>",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+  std::vector<Vector3>* inWp = ((std::vector<Vector3>*)  tolua_tousertype(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setWaypoints'", NULL);
+#endif
+  {
+   self->setWaypoints(inWp);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setWaypoints'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setWalkSpeed of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setWalkSpeed00
+static int tolua_Hax_Hax_Mobile_setWalkSpeed00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+  const float inSpeed = ((const float)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setWalkSpeed'", NULL);
+#endif
+  {
+   self->setWalkSpeed(inSpeed);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setWalkSpeed'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getWalkSpeed of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_getWalkSpeed00
+static int tolua_Hax_Hax_Mobile_getWalkSpeed00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"const Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const Hax::Mobile* self = (const Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getWalkSpeed'", NULL);
+#endif
+  {
+   float tolua_ret = (float)  self->getWalkSpeed();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getWalkSpeed'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setDefaultWalkSpeed of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setDefaultWalkSpeed00
+static int tolua_Hax_Hax_Mobile_setDefaultWalkSpeed00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  const float inSpeed = ((const float)  tolua_tonumber(tolua_S,2,0));
+  {
+   Hax::Mobile::setDefaultWalkSpeed(inSpeed);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setDefaultWalkSpeed'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: getDefaultWalkSpeed of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_getDefaultWalkSpeed00
+static int tolua_Hax_Hax_Mobile_getDefaultWalkSpeed00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  {
+   float tolua_ret = (float)  Hax::Mobile::getDefaultWalkSpeed();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'getDefaultWalkSpeed'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: rotateToEnemy of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_rotateToEnemy00
+static int tolua_Hax_Hax_Mobile_rotateToEnemy00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'rotateToEnemy'", NULL);
+#endif
+  {
+   self->rotateToEnemy();
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'rotateToEnemy'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: rotateTo of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_rotateTo00
+static int tolua_Hax_Hax_Mobile_rotateTo00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"const Ogre::Vector3",0,&tolua_err)) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
+  const Ogre::Vector3* inDest = ((const Ogre::Vector3*)  tolua_tousertype(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'rotateTo'", NULL);
+#endif
+  {
+   self->rotateTo(*inDest);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'rotateTo'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: setRotationFactor of class  Hax::Mobile */
+#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setRotationFactor00
+static int tolua_Hax_Hax_Mobile_setRotationFactor00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  float inFactor = ((float)  tolua_tonumber(tolua_S,2,0));
+  {
+   Hax::Mobile::setRotationFactor(inFactor);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'setRotationFactor'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
 /* method: new of class  Hax::Event */
 #ifndef TOLUA_DISABLE_tolua_Hax_Hax_Event_new00
 static int tolua_Hax_Hax_Event_new00(lua_State* tolua_S)
@@ -2694,10 +3165,10 @@ static int tolua_Hax_Hax_Event_new01(lua_State* tolua_S)
  else
  {
   unsigned const char inUID = ((unsigned const char)  tolua_tonumber(tolua_S,2,0));
-  unsigned const char tolua_var_6 = ((unsigned const char)  tolua_tonumber(tolua_S,3,Hax::EventFeedback::Unassigned));
+  unsigned const char tolua_var_8 = ((unsigned const char)  tolua_tonumber(tolua_S,3,Hax::EventFeedback::Unassigned));
   unsigned char options = ((unsigned char)  tolua_tonumber(tolua_S,4,0));
   {
-   Hax::Event* tolua_ret = (Hax::Event*)  Mtolua_new((Hax::Event)(inUID,tolua_var_6,options));
+   Hax::Event* tolua_ret = (Hax::Event*)  Mtolua_new((Hax::Event)(inUID,tolua_var_8,options));
     tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Event");
   }
  }
@@ -2723,10 +3194,10 @@ static int tolua_Hax_Hax_Event_new01_local(lua_State* tolua_S)
  else
  {
   unsigned const char inUID = ((unsigned const char)  tolua_tonumber(tolua_S,2,0));
-  unsigned const char tolua_var_6 = ((unsigned const char)  tolua_tonumber(tolua_S,3,Hax::EventFeedback::Unassigned));
+  unsigned const char tolua_var_8 = ((unsigned const char)  tolua_tonumber(tolua_S,3,Hax::EventFeedback::Unassigned));
   unsigned char options = ((unsigned char)  tolua_tonumber(tolua_S,4,0));
   {
-   Hax::Event* tolua_ret = (Hax::Event*)  Mtolua_new((Hax::Event)(inUID,tolua_var_6,options));
+   Hax::Event* tolua_ret = (Hax::Event*)  Mtolua_new((Hax::Event)(inUID,tolua_var_8,options));
     tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Event");
     tolua_register_gc(tolua_S,lua_gettop(tolua_S));
   }
@@ -3102,9 +3573,9 @@ static int tolua_Hax_Hax_Event_UIDToString00(lua_State* tolua_S)
  else
 #endif
  {
-  unsigned char tolua_var_7 = ((unsigned char)  tolua_tonumber(tolua_S,2,0));
+  unsigned char tolua_var_9 = ((unsigned char)  tolua_tonumber(tolua_S,2,0));
   {
-   std::string tolua_ret = (std::string)  Hax::Event::__uidToString(tolua_var_7);
+   std::string tolua_ret = (std::string)  Hax::Event::__uidToString(tolua_var_9);
    tolua_pushcppstring(tolua_S,(const char*)tolua_ret);
   }
  }
@@ -3765,12 +4236,12 @@ static int tolua_Hax_Hax_GfxEngine_updateMe00(lua_State* tolua_S)
 #endif
  {
   Hax::GfxEngine* self = (Hax::GfxEngine*)  tolua_tousertype(tolua_S,1,0);
-  Hax::Mobile* tolua_var_8 = ((Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
+  Hax::Mobile* tolua_var_10 = ((Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'updateMe'", NULL);
 #endif
   {
-   self->updateMe(tolua_var_8);
+   self->updateMe(tolua_var_10);
   }
  }
  return 0;
@@ -3798,12 +4269,12 @@ static int tolua_Hax_Hax_GfxEngine_stopUpdatingMe00(lua_State* tolua_S)
 #endif
  {
   Hax::GfxEngine* self = (Hax::GfxEngine*)  tolua_tousertype(tolua_S,1,0);
-  Hax::Mobile* tolua_var_9 = ((Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
+  Hax::Mobile* tolua_var_11 = ((Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'stopUpdatingMe'", NULL);
 #endif
   {
-   self->stopUpdatingMe(tolua_var_9);
+   self->stopUpdatingMe(tolua_var_11);
   }
  }
  return 0;
@@ -3975,85 +4446,19 @@ static int tolua_Hax_Hax_GfxEngine__setUserAny00(lua_State* tolua_S)
 #endif
  {
   Hax::GfxEngine* self = (Hax::GfxEngine*)  tolua_tousertype(tolua_S,1,0);
-  Ogre::MovableObject* tolua_var_10 = ((Ogre::MovableObject*)  tolua_tousertype(tolua_S,2,0));
-  void* tolua_var_11 = ((void*)  tolua_touserdata(tolua_S,3,0));
+  Ogre::MovableObject* tolua_var_12 = ((Ogre::MovableObject*)  tolua_tousertype(tolua_S,2,0));
+  void* tolua_var_13 = ((void*)  tolua_touserdata(tolua_S,3,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function '_setUserAny'", NULL);
 #endif
   {
-   self->_setUserAny(tolua_var_10,tolua_var_11);
+   self->_setUserAny(tolua_var_12,tolua_var_13);
   }
  }
  return 0;
 #ifndef TOLUA_RELEASE
  tolua_lerror:
  tolua_error(tolua_S,"#ferror in function '_setUserAny'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: attachRTT of class  Hax::GfxEngine */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_GfxEngine_attachRTT00
-static int tolua_Hax_Hax_GfxEngine_attachRTT00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::GfxEngine",0,&tolua_err) ||
-     !tolua_isusertype(tolua_S,2,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::GfxEngine* self = (Hax::GfxEngine*)  tolua_tousertype(tolua_S,1,0);
-  Hax::OgreRTT* tolua_var_12 = ((Hax::OgreRTT*)  tolua_tousertype(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'attachRTT'", NULL);
-#endif
-  {
-   self->attachRTT(tolua_var_12);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'attachRTT'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: detachRTT of class  Hax::GfxEngine */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_GfxEngine_detachRTT00
-static int tolua_Hax_Hax_GfxEngine_detachRTT00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::GfxEngine",0,&tolua_err) ||
-     !tolua_isusertype(tolua_S,2,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::GfxEngine* self = (Hax::GfxEngine*)  tolua_tousertype(tolua_S,1,0);
-  Hax::OgreRTT* tolua_var_13 = ((Hax::OgreRTT*)  tolua_tousertype(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'detachRTT'", NULL);
-#endif
-  {
-   self->detachRTT(tolua_var_13);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'detachRTT'.",&tolua_err);
  return 0;
 #endif
 }
@@ -5118,807 +5523,6 @@ static int tolua_Hax_Hax_LuaExporter_std__vector_Hax__Entity_____export00(lua_St
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* method: new of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new00
-static int tolua_Hax_Hax_Mobile_new00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  {
-   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)());
-    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: new_local of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new00_local
-static int tolua_Hax_Hax_Mobile_new00_local(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  {
-   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)());
-    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
-    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: new of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new01
-static int tolua_Hax_Hax_Mobile_new01(lua_State* tolua_S)
-{
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"const Hax::Mobile",0,&tolua_err)) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
- {
-  const Hax::Mobile* src = ((const Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
-  {
-   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)(*src));
-    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
-  }
- }
- return 1;
-tolua_lerror:
- return tolua_Hax_Hax_Mobile_new00(tolua_S);
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: new_local of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_new01_local
-static int tolua_Hax_Hax_Mobile_new01_local(lua_State* tolua_S)
-{
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"const Hax::Mobile",0,&tolua_err)) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
- {
-  const Hax::Mobile* src = ((const Hax::Mobile*)  tolua_tousertype(tolua_S,2,0));
-  {
-   Hax::Mobile* tolua_ret = (Hax::Mobile*)  Mtolua_new((Hax::Mobile)(*src));
-    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::Mobile");
-    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
-  }
- }
- return 1;
-tolua_lerror:
- return tolua_Hax_Hax_Mobile_new00_local(tolua_S);
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: delete of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_delete00
-static int tolua_Hax_Hax_Mobile_delete00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'delete'", NULL);
-#endif
-  Mtolua_delete(self);
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'delete'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: move of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_move00
-static int tolua_Hax_Hax_Mobile_move00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-  int inWaypoint = ((int)  tolua_tonumber(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'move'", NULL);
-#endif
-  {
-   self->move(inWaypoint);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'move'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: step of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_step00
-static int tolua_Hax_Hax_Mobile_step00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-  unsigned long dt = ((unsigned long)  tolua_tonumber(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'step'", NULL);
-#endif
-  {
-   self->step(dt);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'step'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: isMoving of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_isMoving00
-static int tolua_Hax_Hax_Mobile_isMoving00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"const Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  const Hax::Mobile* self = (const Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'isMoving'", NULL);
-#endif
-  {
-   bool tolua_ret = (bool)  self->isMoving();
-   tolua_pushboolean(tolua_S,(bool)tolua_ret);
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'isMoving'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: setWaypoints of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setWaypoints00
-static int tolua_Hax_Hax_Mobile_setWaypoints00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isusertype(tolua_S,2,"std::vector<Vector3>",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-  std::vector<Vector3>* inWp = ((std::vector<Vector3>*)  tolua_tousertype(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setWaypoints'", NULL);
-#endif
-  {
-   self->setWaypoints(inWp);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'setWaypoints'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: setWalkSpeed of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setWalkSpeed00
-static int tolua_Hax_Hax_Mobile_setWalkSpeed00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-  const float inSpeed = ((const float)  tolua_tonumber(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setWalkSpeed'", NULL);
-#endif
-  {
-   self->setWalkSpeed(inSpeed);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'setWalkSpeed'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: getWalkSpeed of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_getWalkSpeed00
-static int tolua_Hax_Hax_Mobile_getWalkSpeed00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"const Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  const Hax::Mobile* self = (const Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'getWalkSpeed'", NULL);
-#endif
-  {
-   float tolua_ret = (float)  self->getWalkSpeed();
-   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'getWalkSpeed'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: setDefaultWalkSpeed of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setDefaultWalkSpeed00
-static int tolua_Hax_Hax_Mobile_setDefaultWalkSpeed00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  const float inSpeed = ((const float)  tolua_tonumber(tolua_S,2,0));
-  {
-   Hax::Mobile::setDefaultWalkSpeed(inSpeed);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'setDefaultWalkSpeed'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: getDefaultWalkSpeed of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_getDefaultWalkSpeed00
-static int tolua_Hax_Hax_Mobile_getDefaultWalkSpeed00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  {
-   float tolua_ret = (float)  Hax::Mobile::getDefaultWalkSpeed();
-   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'getDefaultWalkSpeed'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: rotateToEnemy of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_rotateToEnemy00
-static int tolua_Hax_Hax_Mobile_rotateToEnemy00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'rotateToEnemy'", NULL);
-#endif
-  {
-   self->rotateToEnemy();
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'rotateToEnemy'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: rotateTo of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_rotateTo00
-static int tolua_Hax_Hax_Mobile_rotateTo00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"const Ogre::Vector3",0,&tolua_err)) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::Mobile* self = (Hax::Mobile*)  tolua_tousertype(tolua_S,1,0);
-  const Ogre::Vector3* inDest = ((const Ogre::Vector3*)  tolua_tousertype(tolua_S,2,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'rotateTo'", NULL);
-#endif
-  {
-   self->rotateTo(*inDest);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'rotateTo'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: setRotationFactor of class  Hax::Mobile */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_Mobile_setRotationFactor00
-static int tolua_Hax_Hax_Mobile_setRotationFactor00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::Mobile",0,&tolua_err) ||
-     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,3,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  float inFactor = ((float)  tolua_tonumber(tolua_S,2,0));
-  {
-   Hax::Mobile::setRotationFactor(inFactor);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'setRotationFactor'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: new of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_new00
-static int tolua_Hax_Hax_OgreRTT_new00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  {
-   Hax::OgreRTT* tolua_ret = (Hax::OgreRTT*)  Mtolua_new((Hax::OgreRTT)());
-    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::OgreRTT");
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: new_local of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_new00_local
-static int tolua_Hax_Hax_OgreRTT_new00_local(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertable(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  {
-   Hax::OgreRTT* tolua_ret = (Hax::OgreRTT*)  Mtolua_new((Hax::OgreRTT)());
-    tolua_pushusertype(tolua_S,(void*)tolua_ret,"Hax::OgreRTT");
-    tolua_register_gc(tolua_S,lua_gettop(tolua_S));
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'new'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: delete of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_delete00
-static int tolua_Hax_Hax_OgreRTT_delete00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'delete'", NULL);
-#endif
-  Mtolua_delete(self);
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'delete'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: setup of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_setup00
-static int tolua_Hax_Hax_OgreRTT_setup00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isusertype(tolua_S,2,"Ogre::SceneManager",0,&tolua_err) ||
-     !tolua_isusertype(tolua_S,3,"Ogre::RenderWindow",0,&tolua_err) ||
-     !tolua_isusertype(tolua_S,4,"Ogre::Camera",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,5,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-  Ogre::SceneManager* mSceneMgr = ((Ogre::SceneManager*)  tolua_tousertype(tolua_S,2,0));
-  Ogre::RenderWindow* inWindow = ((Ogre::RenderWindow*)  tolua_tousertype(tolua_S,3,0));
-  Ogre::Camera* inCamera = ((Ogre::Camera*)  tolua_tousertype(tolua_S,4,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setup'", NULL);
-#endif
-  {
-   self->setup(mSceneMgr,inWindow,inCamera);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'setup'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: setCorners of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_setCorners00
-static int tolua_Hax_Hax_OgreRTT_setCorners00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     (tolua_isvaluenil(tolua_S,2,&tolua_err) || !tolua_isusertype(tolua_S,2,"Ogre::Real",0,&tolua_err)) ||
-     (tolua_isvaluenil(tolua_S,3,&tolua_err) || !tolua_isusertype(tolua_S,3,"Ogre::Real",0,&tolua_err)) ||
-     (tolua_isvaluenil(tolua_S,4,&tolua_err) || !tolua_isusertype(tolua_S,4,"Ogre::Real",0,&tolua_err)) ||
-     (tolua_isvaluenil(tolua_S,5,&tolua_err) || !tolua_isusertype(tolua_S,5,"Ogre::Real",0,&tolua_err)) ||
-     !tolua_isnoobj(tolua_S,6,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-  Ogre::Real left = *((Ogre::Real*)  tolua_tousertype(tolua_S,2,0));
-  Ogre::Real right = *((Ogre::Real*)  tolua_tousertype(tolua_S,3,0));
-  Ogre::Real top = *((Ogre::Real*)  tolua_tousertype(tolua_S,4,0));
-  Ogre::Real bot = *((Ogre::Real*)  tolua_tousertype(tolua_S,5,0));
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setCorners'", NULL);
-#endif
-  {
-   self->setCorners(left,right,top,bot);
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'setCorners'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: enable of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_enable00
-static int tolua_Hax_Hax_OgreRTT_enable00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'enable'", NULL);
-#endif
-  {
-   self->enable();
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'enable'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: disable of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_disable00
-static int tolua_Hax_Hax_OgreRTT_disable00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'disable'", NULL);
-#endif
-  {
-   self->disable();
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'disable'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: isEnabled of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_isEnabled00
-static int tolua_Hax_Hax_OgreRTT_isEnabled00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"const Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  const Hax::OgreRTT* self = (const Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'isEnabled'", NULL);
-#endif
-  {
-   bool tolua_ret = (bool)  self->isEnabled();
-   tolua_pushboolean(tolua_S,(bool)tolua_ret);
-  }
- }
- return 1;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'isEnabled'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: hide of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_hide00
-static int tolua_Hax_Hax_OgreRTT_hide00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'hide'", NULL);
-#endif
-  {
-   self->hide();
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'hide'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
-/* method: show of class  Hax::OgreRTT */
-#ifndef TOLUA_DISABLE_tolua_Hax_Hax_OgreRTT_show00
-static int tolua_Hax_Hax_OgreRTT_show00(lua_State* tolua_S)
-{
-#ifndef TOLUA_RELEASE
- tolua_Error tolua_err;
- if (
-     !tolua_isusertype(tolua_S,1,"Hax::OgreRTT",0,&tolua_err) ||
-     !tolua_isnoobj(tolua_S,2,&tolua_err)
- )
-  goto tolua_lerror;
- else
-#endif
- {
-  Hax::OgreRTT* self = (Hax::OgreRTT*)  tolua_tousertype(tolua_S,1,0);
-#ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'show'", NULL);
-#endif
-  {
-   self->show();
-  }
- }
- return 0;
-#ifndef TOLUA_RELEASE
- tolua_lerror:
- tolua_error(tolua_S,"#ferror in function 'show'.",&tolua_err);
- return 0;
-#endif
-}
-#endif //#ifndef TOLUA_DISABLE
-
 /* method: getSingletonPtr of class  Hax::ScriptEngine */
 #ifndef TOLUA_DISABLE_tolua_Hax_Hax_ScriptEngine_getSingletonPtr00
 static int tolua_Hax_Hax_ScriptEngine_getSingletonPtr00(lua_State* tolua_S)
@@ -6139,13 +5743,13 @@ static int tolua_Hax_Hax_UIEngine_setMargin00(lua_State* tolua_S)
 #endif
  {
   Hax::UIEngine* self = (Hax::UIEngine*)  tolua_tousertype(tolua_S,1,0);
-  CEGUI::Window* tolua_var_16 = ((CEGUI::Window*)  tolua_tousertype(tolua_S,2,0));
-  CEGUI::UBox tolua_var_17 = *((CEGUI::UBox*)  tolua_tousertype(tolua_S,3,0));
+  CEGUI::Window* tolua_var_14 = ((CEGUI::Window*)  tolua_tousertype(tolua_S,2,0));
+  CEGUI::UBox tolua_var_15 = *((CEGUI::UBox*)  tolua_tousertype(tolua_S,3,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'setMargin'", NULL);
 #endif
   {
-   self->setMargin(tolua_var_16,tolua_var_17);
+   self->setMargin(tolua_var_14,tolua_var_15);
   }
  }
  return 0;
@@ -6174,13 +5778,13 @@ static int tolua_Hax_Hax_UIEngine_connectAnimation00(lua_State* tolua_S)
 #endif
  {
   Hax::UIEngine* self = (Hax::UIEngine*)  tolua_tousertype(tolua_S,1,0);
-  CEGUI::Window* tolua_var_18 = ((CEGUI::Window*)  tolua_tousertype(tolua_S,2,0));
-   std::string tolua_var_19 = ((  std::string)  tolua_tocppstring(tolua_S,3,0));
+  CEGUI::Window* tolua_var_16 = ((CEGUI::Window*)  tolua_tousertype(tolua_S,2,0));
+   std::string tolua_var_17 = ((  std::string)  tolua_tocppstring(tolua_S,3,0));
 #ifndef TOLUA_RELEASE
   if (!self) tolua_error(tolua_S,"invalid 'self' in function 'connectAnimation'", NULL);
 #endif
   {
-   self->connectAnimation(tolua_var_18,tolua_var_19);
+   self->connectAnimation(tolua_var_16,tolua_var_17);
   }
  }
  return 0;
@@ -6321,6 +5925,40 @@ TOLUA_API int tolua_Hax_open (lua_State* tolua_S)
   tolua_endmodule(tolua_S);
   tolua_module(tolua_S,"Hax",0);
   tolua_beginmodule(tolua_S,"Hax");
+  tolua_endmodule(tolua_S);
+  tolua_module(tolua_S,"Hax",0);
+  tolua_beginmodule(tolua_S,"Hax");
+   tolua_cclass(tolua_S,"Unit","Hax::Unit","",NULL);
+   tolua_beginmodule(tolua_S,"Unit");
+   tolua_endmodule(tolua_S);
+   #ifdef __cplusplus
+   tolua_cclass(tolua_S,"Mobile","Hax::Mobile","",tolua_collect_Hax__Mobile);
+   #else
+   tolua_cclass(tolua_S,"Mobile","Hax::Mobile","",NULL);
+   #endif
+   tolua_beginmodule(tolua_S,"Mobile");
+    tolua_function(tolua_S,"new",tolua_Hax_Hax_Mobile_new00);
+    tolua_function(tolua_S,"new_local",tolua_Hax_Hax_Mobile_new00_local);
+    tolua_function(tolua_S,".call",tolua_Hax_Hax_Mobile_new00_local);
+    tolua_function(tolua_S,"new",tolua_Hax_Hax_Mobile_new01);
+    tolua_function(tolua_S,"new_local",tolua_Hax_Hax_Mobile_new01_local);
+    tolua_function(tolua_S,".call",tolua_Hax_Hax_Mobile_new01_local);
+    tolua_function(tolua_S,"delete",tolua_Hax_Hax_Mobile_delete00);
+    tolua_function(tolua_S,"move",tolua_Hax_Hax_Mobile_move00);
+    tolua_function(tolua_S,"step",tolua_Hax_Hax_Mobile_step00);
+    tolua_function(tolua_S,"isMoving",tolua_Hax_Hax_Mobile_isMoving00);
+    tolua_function(tolua_S,"setWaypoints",tolua_Hax_Hax_Mobile_setWaypoints00);
+    tolua_function(tolua_S,"setWalkSpeed",tolua_Hax_Hax_Mobile_setWalkSpeed00);
+    tolua_function(tolua_S,"getWalkSpeed",tolua_Hax_Hax_Mobile_getWalkSpeed00);
+    tolua_function(tolua_S,"setDefaultWalkSpeed",tolua_Hax_Hax_Mobile_setDefaultWalkSpeed00);
+    tolua_function(tolua_S,"getDefaultWalkSpeed",tolua_Hax_Hax_Mobile_getDefaultWalkSpeed00);
+    tolua_function(tolua_S,"rotateToEnemy",tolua_Hax_Hax_Mobile_rotateToEnemy00);
+    tolua_function(tolua_S,"rotateTo",tolua_Hax_Hax_Mobile_rotateTo00);
+    tolua_function(tolua_S,"setRotationFactor",tolua_Hax_Hax_Mobile_setRotationFactor00);
+   tolua_endmodule(tolua_S);
+  tolua_endmodule(tolua_S);
+  tolua_module(tolua_S,"Hax",0);
+  tolua_beginmodule(tolua_S,"Hax");
    tolua_cclass(tolua_S,"Engine","Hax::Engine","",NULL);
    tolua_beginmodule(tolua_S,"Engine");
    tolua_endmodule(tolua_S);
@@ -6404,8 +6042,6 @@ TOLUA_API int tolua_Hax_open (lua_State* tolua_S)
     tolua_function(tolua_S,"setYawPitchDist",tolua_Hax_Hax_GfxEngine_setYawPitchDist00);
     tolua_function(tolua_S,"trackNode",tolua_Hax_Hax_GfxEngine_trackNode00);
     tolua_function(tolua_S,"_setUserAny",tolua_Hax_Hax_GfxEngine__setUserAny00);
-    tolua_function(tolua_S,"attachRTT",tolua_Hax_Hax_GfxEngine_attachRTT00);
-    tolua_function(tolua_S,"detachRTT",tolua_Hax_Hax_GfxEngine_detachRTT00);
     tolua_function(tolua_S,"createColourCube",tolua_Hax_Hax_GfxEngine_createColourCube00);
     tolua_function(tolua_S,"createSphere",tolua_Hax_Hax_GfxEngine_createSphere00);
    tolua_endmodule(tolua_S);
@@ -6534,61 +6170,6 @@ TOLUA_API int tolua_Hax_open (lua_State* tolua_S)
     tolua_function(tolua_S,"delete",tolua_Hax_Hax_LuaExporter_std__vector_Hax__Entity_____delete00);
     tolua_function(tolua_S,"export",tolua_Hax_Hax_LuaExporter_std__vector_Hax__Entity_____export00);
    tolua_endmodule(tolua_S);
-  tolua_endmodule(tolua_S);
-  tolua_module(tolua_S,"Hax",0);
-  tolua_beginmodule(tolua_S,"Hax");
-   tolua_cclass(tolua_S,"Unit","Hax::Unit","",NULL);
-   tolua_beginmodule(tolua_S,"Unit");
-   tolua_endmodule(tolua_S);
-   #ifdef __cplusplus
-   tolua_cclass(tolua_S,"Mobile","Hax::Mobile","",tolua_collect_Hax__Mobile);
-   #else
-   tolua_cclass(tolua_S,"Mobile","Hax::Mobile","",NULL);
-   #endif
-   tolua_beginmodule(tolua_S,"Mobile");
-    tolua_function(tolua_S,"new",tolua_Hax_Hax_Mobile_new00);
-    tolua_function(tolua_S,"new_local",tolua_Hax_Hax_Mobile_new00_local);
-    tolua_function(tolua_S,".call",tolua_Hax_Hax_Mobile_new00_local);
-    tolua_function(tolua_S,"new",tolua_Hax_Hax_Mobile_new01);
-    tolua_function(tolua_S,"new_local",tolua_Hax_Hax_Mobile_new01_local);
-    tolua_function(tolua_S,".call",tolua_Hax_Hax_Mobile_new01_local);
-    tolua_function(tolua_S,"delete",tolua_Hax_Hax_Mobile_delete00);
-    tolua_function(tolua_S,"move",tolua_Hax_Hax_Mobile_move00);
-    tolua_function(tolua_S,"step",tolua_Hax_Hax_Mobile_step00);
-    tolua_function(tolua_S,"isMoving",tolua_Hax_Hax_Mobile_isMoving00);
-    tolua_function(tolua_S,"setWaypoints",tolua_Hax_Hax_Mobile_setWaypoints00);
-    tolua_function(tolua_S,"setWalkSpeed",tolua_Hax_Hax_Mobile_setWalkSpeed00);
-    tolua_function(tolua_S,"getWalkSpeed",tolua_Hax_Hax_Mobile_getWalkSpeed00);
-    tolua_function(tolua_S,"setDefaultWalkSpeed",tolua_Hax_Hax_Mobile_setDefaultWalkSpeed00);
-    tolua_function(tolua_S,"getDefaultWalkSpeed",tolua_Hax_Hax_Mobile_getDefaultWalkSpeed00);
-    tolua_function(tolua_S,"rotateToEnemy",tolua_Hax_Hax_Mobile_rotateToEnemy00);
-    tolua_function(tolua_S,"rotateTo",tolua_Hax_Hax_Mobile_rotateTo00);
-    tolua_function(tolua_S,"setRotationFactor",tolua_Hax_Hax_Mobile_setRotationFactor00);
-   tolua_endmodule(tolua_S);
-  tolua_endmodule(tolua_S);
-  tolua_module(tolua_S,"Hax",0);
-  tolua_beginmodule(tolua_S,"Hax");
-   #ifdef __cplusplus
-   tolua_cclass(tolua_S,"OgreRTT","Hax::OgreRTT","Ogre::RenderTargetListener",tolua_collect_Hax__OgreRTT);
-   #else
-   tolua_cclass(tolua_S,"OgreRTT","Hax::OgreRTT","Ogre::RenderTargetListener",NULL);
-   #endif
-   tolua_beginmodule(tolua_S,"OgreRTT");
-    tolua_function(tolua_S,"new",tolua_Hax_Hax_OgreRTT_new00);
-    tolua_function(tolua_S,"new_local",tolua_Hax_Hax_OgreRTT_new00_local);
-    tolua_function(tolua_S,".call",tolua_Hax_Hax_OgreRTT_new00_local);
-    tolua_function(tolua_S,"delete",tolua_Hax_Hax_OgreRTT_delete00);
-    tolua_function(tolua_S,"setup",tolua_Hax_Hax_OgreRTT_setup00);
-    tolua_function(tolua_S,"setCorners",tolua_Hax_Hax_OgreRTT_setCorners00);
-    tolua_function(tolua_S,"enable",tolua_Hax_Hax_OgreRTT_enable00);
-    tolua_function(tolua_S,"disable",tolua_Hax_Hax_OgreRTT_disable00);
-    tolua_function(tolua_S,"isEnabled",tolua_Hax_Hax_OgreRTT_isEnabled00);
-    tolua_function(tolua_S,"hide",tolua_Hax_Hax_OgreRTT_hide00);
-    tolua_function(tolua_S,"show",tolua_Hax_Hax_OgreRTT_show00);
-   tolua_endmodule(tolua_S);
-  tolua_endmodule(tolua_S);
-  tolua_module(tolua_S,"Hax",0);
-  tolua_beginmodule(tolua_S,"Hax");
   tolua_endmodule(tolua_S);
   tolua_module(tolua_S,"Hax",0);
   tolua_beginmodule(tolua_S,"Hax");

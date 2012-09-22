@@ -24,50 +24,24 @@
 #include "Hax/Intro.hpp"
 
 using namespace Hax;
-#if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-#define WIN32_LEAN_AND_MEAN
-#include "windows.h"
-INT WINAPI WinMain( HINSTANCE hInst, HINSTANCE, LPSTR strCmdLine, INT ) {
-#else
-  int main( int argc, char **argv ) {
-#endif
-// Apple
-#if (OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+int main( int argc, char **argv ) {
+  HaxInit();
 
-    mAppDelegate = [[AppDelegate alloc] init];
-    [[NSApplication sharedApplication] setDelegate:mAppDelegate];
-    int retVal = NSApplicationMain(argc, (const char **) argv);
-
-    [pool release];
-
-    return retVal;
-#else
-
-    HaxInit();
-
-// Win32 && Linux
-    GameManager *gameManager = GameManager::getSingletonPtr();
-    try {
-      // Initialise the game and switch to the first state
-      gameManager->startGame(Intro::getSingletonPtr());
-
-    }
-    catch ( Ogre::Exception& ex ) {
-# if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
-      MessageBox( NULL, ex.getFullDescription().c_str(), "An exception has occurred!", MB_OK | MB_ICONERROR | MB_TASKMODAL );
-# else
-      std::cerr << "An exception has occured: " << ex.getFullDescription();
-# endif
-    } catch (std::exception& e) {
-      Ogre::String errMsg = e.what();
-      HAX_LOG->errorStream() << errMsg;
-      gameManager->_cleanup();
-    }
-
-    delete gameManager;
-    HaxCleanup();
-    return 0;
-#endif
+  GameManager *gameManager = GameManager::getSingletonPtr();
+  try {
+    // Initialise the game and switch to the first state
+    gameManager->startGame(Intro::getSingletonPtr());
+  } catch ( Ogre::Exception& ex ) {
+    std::cerr << "An exception has occured: " << ex.getFullDescription();
+  } catch (std::exception& e) {
+    Ogre::String errMsg = e.what();
+    HAX_LOG->errorStream() << errMsg;
+    gameManager->_cleanup();
   }
+
+  delete gameManager;
+  HaxCleanup();
+
+  return 0;
+}
 

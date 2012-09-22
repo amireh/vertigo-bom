@@ -56,7 +56,7 @@ namespace Hax {
   class MousePicker;
   class GenericMousePicker;
   class PolyMousePicker;
-  class OgreRTT;
+  // class OgreRTT;
 
 	/*! \class GfxEngine
 	 *	\brief
@@ -153,8 +153,8 @@ namespace Hax {
 
     void _setUserAny(Ogre::MovableObject*, void*);
 
-    void attachRTT(OgreRTT*);
-    void detachRTT(OgreRTT*);
+    // void attachRTT(OgreRTT*);
+    // void detachRTT(OgreRTT*);
 
     /**
      * Creates a Cube mesh named ColourCube with a default size of 100 units
@@ -229,7 +229,7 @@ namespace Hax {
     PolyMousePicker     *mPolyPicker;
     MousePicker         *mPicker;
 
-    std::list<OgreRTT*> mRTTs;
+    // std::list<OgreRTT*> mRTTs;
 
     Vector3 mCameraYawPitchDist;
 
